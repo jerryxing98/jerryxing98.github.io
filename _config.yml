@@ -3,20 +3,20 @@ title: Hux Blog
 SEOTitle: 黄玄的博客 | Hux Blog
 header-img: img/home-bg.jpg
 email: huxpro@gmail.com
-description: "关于前端与设计、黑客与画家 | 黄玄，Web & Mobile Lover，Front-End Engineer，UX Designer | 这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界。"
-keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, 肖玉, Lynn, 肖玉的男朋友"
-url: "https://huangxuan.me"              # your host, for absolute URL
+description: "BigData。"
+keyword: "BigData"
+url: "https://jerryminds.me"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
 # SNS settings
 RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
+weibo_username:     jerryxing8
+zhihu_username:     jerryxing8
+github_username:    jerryxing8
 #twitter_username:  huxpro
-facebook_username:  huxpro
+facebook_username:  jerryxing8
 # linkedin_username:  firstname-lastname-idxxxx
 
 
@@ -48,7 +48,8 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: hux
+#https://disqus.com/by/xingjerry/
+disqus_username: jerryxing98
 
 # Duoshuo settings
 duoshuo_username: huxblog
@@ -63,15 +64,15 @@ duoshuo_share: true                     # set to false if you want to use Commen
 # ba_track_id: [your track id]
 
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+ga_track_id: 'UA-99560304-1'            # Format: UA-xxxxxx-xx
+ga_domain: jerryxing98.github.io
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "写写代码，做做设计，<br>离开世界之前，一切都是过程"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "做一个有智慧的人,而不是聪明的人！<br>你们常存忍耐,就比保全灵魂 - 路加福音21:19"
+sidebar-avatar: /img/avatar-jerryminds.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
