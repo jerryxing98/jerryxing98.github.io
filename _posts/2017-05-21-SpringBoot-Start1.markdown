@@ -1,6 +1,6 @@
 ---
 layout:     keynote
-title:      "SpringBoot-最佳实践-第一章迁移旧应用"
+title:      "SpringBoot-最佳实践-1.1迁移旧应用"
 subtitle:   "Slides: Springmvc迁移至SpringBoot"
 header-img: "img/post-bg-js-version.jpg"
 navcolor:   "invert"
@@ -9,6 +9,7 @@ author:     "JerryMinds"
 tags:
     - Java
     - SpringBoot
+    - microservice
     - 云端
 ---
 
@@ -92,11 +93,11 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 
 1.SpringMVC静态文件的访问 - 交给Servlet
 Spring MVC 的入口是 DispatcherServlet，所有的请求都会汇集于该类，而后分发给不同的处理类。如果不做额外的配置，是无法访问静态资源的。
-![img](/img/in-post/post-springboot/post-springboot-static-resource-01.png.png)
+![img](/img/in-post/post-springboot/post-springboot-static-resource-01.png)
 
 如果想让 Dispatcher Servlet 直接可以访问到静态资源，最简单的方法当然是交给默认的 Servlet。
 
-![img](/img/in-post/post-springboot/post-springboot-static-resource-02.png.png)
+![img](/img/in-post/post-springboot/post-springboot-static-resource-02.png)
 
 ```java
 @Configuration
@@ -116,7 +117,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 我们可以通过很简单的配置使得 Spring MVC 有能力处理对静态资源进行处理。
 在 Spring MVC 中，资源的查找、处理使用的是责任链设计模式（Filter Chain）：
 
-![img](/img/in-post/post-springboot/post-springboot-static-resource-03.png.png)
+![img](/img/in-post/post-springboot/post-springboot-static-resource-03.png)
 
 其思路为如果当前 resolver 找不到资源，则转交给下一个 resolver 处理。 当前 resolver 找到资源则立即返回给上级 resovler（如果存在），此时上级 resolver 又可以选择对资源进一步处理或再次返回给它的上级（如果存在）。
 
@@ -135,7 +136,7 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
 ```
 
 通过这样的配置，就成功添加了一个 **PathResourceResolver**。
-![img](/img/in-post/post-springboot/post-springboot-static-resource-04.png.png)
+![img](/img/in-post/post-springboot/post-springboot-static-resource-04.png)
 
 该 resolver 的作用是将 url 为 /webjars/** 的请求映射到 **classpath:/META-INF/resources/webjars/ **。
 
