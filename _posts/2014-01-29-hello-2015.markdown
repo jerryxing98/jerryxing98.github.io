@@ -1,35 +1,58 @@
 ---
 layout:     post
-title:      "Hello 2015"
-subtitle:   " \"Hello World, Hello Blog\""
-date:       2015-01-29 12:00:00
-author:     "Hux"
+title:      "大数据系列-交互式数据分析"
+subtitle:   ""
+date:       2017-05-22 12:00:00
+author:     "JerryMinds"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - 生活
+    - 大数据
+    - 云端
 ---
 
-> “Yeah It's on. ”
+> “数据分析，商业智能，大数据OLAP这些YY 都是建立在交互式数据分析的基础上！ ”
 
 
-## 前言
+## Hive数据仓库(on hive)
 
-Jerryminds 的 Blog 就这么开通了。
+### 优缺点
+**优点** -  超大规模的数据构建
+**缺点** -  查询处理效率低
 
-[跳过废话，直接看技术实现 ](#build) 
+### 本质思想: 存储结构Schema化+SQL转为MR的机制
+
+### 特点
+
+#### 数据组织形式，将文件组织成传统数据库形式，并增加模式，扩展部分复杂类型例如复杂嵌套类型
+> database  /usr/hive/warehouse
+> table  /usr/hive/warehourse/ads_table
+> partition /usr/hive/warehourse/ads_table/ds=2014
+> bucket /usr/hive/warehourse/ads_table/age=1.2.3等 桶,ODPS没有该数据结构
+
+
+#### Hive架构: 用户接口(命令行,webui,thrift,jdbc), 驱动器(查询编译器，优化器，执行引擎),元数据管理
+![img](/img/in-post/post_bigdata_hive_01.png)
+
+
+#### HiveSQL查询编译器
+* Antlr定义SQL的语法规则，完成SQL词法，语法解析，将SQL转化为抽象语法树AST Tree
+* 遍历AST Tree，抽象出查询的基本组成单元QueryBlock
+* 遍历QueryBlock，翻译为执行操作树OperatorTree
+* 逻辑层优化器进行OperatorTree变换，合并不必要的ReduceSinkOperator，减少shuffle数据量
+* 遍历OperatorTree，翻译为MapReduce任务
+* 物理层优化器进行MapReduce任务的变换，生成最终的执行计划
 
 
 
-2015 年，Jerryminds 总算有个地方可以好好写点东西了。
+
+#### HiveSQL语句解析器
 
 
-作为一个程序员， Blog 这种轮子要是挂在大众博客程序上就太没意思了。一是觉得大部分 Blog 服务都太丑，二是觉得不能随便定制不好玩。之前因为太懒没有折腾，结果就一直连个写 Blog 的地儿都没有。
-
-在玩了一段时间知乎之后，答题的快感又激起了我开博客的冲动。
+#### Hive效率低的原因
 
 
-<p id = "build"></p>
+
 ---
 
 ## 正文
