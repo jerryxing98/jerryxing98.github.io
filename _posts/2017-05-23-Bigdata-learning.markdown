@@ -32,5 +32,4 @@ L1norm L2norm
 
 预测值    
     逻辑斯蒂回归sigmoid函数
-    函数g的导
 
