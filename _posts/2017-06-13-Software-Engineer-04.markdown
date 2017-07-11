@@ -22,9 +22,9 @@ tags:
 权限管理包含用户认证和授权两部分
 
 用户认证
-Subject： 主体，理解为用户,可能是程序，都要去访问系统的资源，系统需要对subject进行身份认证。
-Principal：身份信息，通常是唯一的，一个主体还有多个身份信息，但是都有一个主身份信息（primary principal）
-Credential : 凭证信息，可以是密码 、证书、指纹
+* Subject： 主体，理解为用户,可能是程序，都要去访问系统的资源，系统需要对subject进行身份认证。
+* Principal：身份信息，通常是唯一的，一个主体还有多个身份信息，但是都有一个主身份信息（primary principal）
+* Credential : 凭证信息，可以是密码 、证书、指纹
 总结：主体在进行身份认证时需要提供身份信息和凭证信息。
 
 
@@ -39,14 +39,13 @@ BU属于资源类型,相当与Java类，或者一个数据库表对象
 * how : 权限/许可(permission) ，针对资源的权限或许可，subject具有permission访问资源，如何访问/操作需要定义permission，权限比如：用户添加、用户修改、商品删除。
 
 权限模型:
-User (账号,密码) - Subject
-Resource (资源名称,访问地址,地址类型) BU查看账单,BU
-Permission （权限名称，资源ID）
-Role (角色名称)
-Role2Permission （角色id、权限id）
-Role2User （UserId,角色Id）
+* User (账号,密码) - Subject
+* Resource (资源名称,访问地址,地址类型) BU查看账单,BU
+* Permission （权限名称，资源ID）
+* Role (角色名称)
+* Role2Permission （角色id、权限id）
+* Role2User （UserId,角色Id）
 
-Resource: Url ,ajax,no_ajax,名称
 
 
 ### 基于角色的访问控制（RBAC Role-Based Access Control）
@@ -63,7 +62,7 @@ Resource: Url ,ajax,no_ajax,名称
 这是概念层的问题，具体到工作的设计当中，用于梳理需求会有一些帮助，主要还是用于梳理基础概念。
 
 问题:
-角色针对人划分的，人作为用户在系统中属于活动内容，如果该 角色可以访问的资源出现变更，需要修改你的代码了，比如：需要变更为部门经理和总经理都可以进行用户报表查看，代码改为：
+角色针对人划分的，人作为用户在系统中属于活动内容，如果该 角色可以访问的资源出现变更，需要修改你的代码了，比如：需要变更为部门经理和总经理都可以进行用户报表查看，代码变更困难！
 
 
 
