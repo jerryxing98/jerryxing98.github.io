@@ -46,7 +46,7 @@ BU属于资源类型,相当与Java类，或者一个数据库表对象
 * Role2Permission （角色id、权限id）
 * Role2User （UserId,角色Id）
 
-
+为了简化开发可以将 Resource Pemission 合并为一个对象。
 
 ### 基于角色的访问控制（RBAC Role-Based Access Control）
 用户
